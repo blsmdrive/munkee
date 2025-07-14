@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - munkee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --munkee-green: #57B14F;
+            --warm-brown: #8B4513;
+            --earth-tone: #A0522D;
+            --soft-cream: #F5F5DC;
+            --retro-orange: #FF8C42;
+            --background: #FDF6E3;
+            --surface: #F0E6D2;
+            --text-primary: #2C1810;
+            --text-secondary: #5D4E37;
+            --text-muted: #8B7355;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: #FFFFFF;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--surface);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo .monkey-emoji {
+            font-size: 32px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--munkee-green);
+        }
+        
+        /* Page Header */
+        .page-header {
+            padding: 64px 0;
+            background: linear-gradient(135deg, var(--background) 0%, #FFFFFF 100%);
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            color: var(--text-secondary);
+        }
+        
+        /* Support Cards */
+        .support-grid {
+            padding: 64px 0;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 64px;
+        }
+        
+        .support-card {
+            background: var(--background);
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .support-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-color: var(--munkee-green);
+        }
+        
+        .support-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, var(--munkee-green), var(--earth-tone));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+        
+        .support-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .support-card p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        
+        .support-card a {
+            color: var(--munkee-green);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .support-card a:hover {
+            color: var(--earth-tone);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 64px 0;
+            background: var(--background);
+        }
+        
+        .faq-section h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 48px;
+            color: var(--text-primary);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 16px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: var(--retro-orange);
+        }
+        
+        .faq-question {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: var(--background);
+        }
+        
+        .faq-question h3 {
+            font-size: 18px;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        
+        .faq-toggle {
+            font-size: 24px;
+            color: var(--munkee-green);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 0 24px 24px;
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 64px 0;
+        }
+        
+        .contact-section h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+        
+        .contact-section p {
+            text-align: center;
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+        }
+        
+        .contact-methods {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--munkee-green), var(--earth-tone));
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(87, 177, 79, 0.3);
+        }
+        
+        .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(87, 177, 79, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 64px 0 32px;
+            margin-top: 100px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--munkee-green);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            padding: 6px 0;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--munkee-green);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <span class="monkey-emoji">🐵</span>
+                munkee
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="support.html" class="active">Support</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Support Center</h1>
+            <p>We're here to help you get those monkeys off your back!</p>
+        </div>
+    </section>
+
+    <!-- Support Cards -->
+    <section class="support-grid">
+        <div class="container">
+            <div class="card-grid">
+                <div class="support-card">
+                    <div class="support-icon">🐵</div>
+                    <h3>Getting Started</h3>
+                    <p>New to munkee? Learn how to add tasks, organize with categories, and master the monkey metaphor.</p>
+                    <a href="#faq">View Getting Started Guide →</a>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">❓</div>
+                    <h3>FAQs</h3>
+                    <p>Find answers to common questions about swipe gestures, categories, priorities, and task management.</p>
+                    <a href="#faq">Browse FAQs →</a>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">💬</div>
+                    <h3>Contact Us</h3>
+                    <p>Can't find what you're looking for? Our support team is ready to help clear those pesky monkeys!</p>
+                    <a href="#contact">Get in Touch →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How do I add my first task in munkee?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tap the "+" button to create a new task. Give it a name, choose a category and priority level, add a due date if needed, and watch a monkey appear on your back! The monkey's face will reflect the priority you chose.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What are the swipe gestures and how do I use them?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Swipe left on any task to mark it complete - watch the monkey jump off your back! Swipe right to delete a task permanently. These are standard iOS gestures, so they'll feel natural and familiar.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How do custom categories work?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Create categories that match your life - Work, Personal, Health, Creative projects, anything! Each category can have its own custom name and color. Organize your monkeys by the areas of your life that matter most.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What do the different monkey faces mean?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Each priority level has its own monkey personality! High priority tasks show stressed or worried monkeys, medium priority tasks have neutral expressions, and low priority tasks display calm, relaxed monkeys. It's a fun visual way to see what needs attention.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Is my task data stored privately?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! All your tasks, categories, and progress stay completely private on your device. munkee doesn't have servers, doesn't require accounts, and can't see your data. Your monkeys are yours alone.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Can I add notes or details to my tasks?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Each task can include detailed notes, reminders, or additional context. Tap on any task to edit it and add as much detail as you need. Perfect for project steps, shopping lists, or important reminders.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How do due dates and overdue tasks work?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Set due dates for time-sensitive tasks. munkee automatically detects overdue tasks and highlights them so you can prioritize accordingly. The monkeys for overdue tasks might look a bit more urgent!</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Does munkee work on iPad as well as iPhone?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! munkee is designed as a universal iOS app that works beautifully on both iPhone and iPad. The interface adapts to your screen size while maintaining the same delightful monkey experience.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What about Dark Mode and accessibility features?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>munkee fully supports iOS Dark Mode and automatically adapts to your system preferences. We also include VoiceOver support, Dynamic Type for text scaling, and haptic feedback for a fully accessible experience.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Can I track my productivity and completion progress?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! munkee tracks your completed tasks with timestamps, so you can see your progress over time. There's something deeply satisfying about watching your productivity improve as more monkeys jump off your back.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2>Still Need Help?</h2>
+            <p>Our support team is here to help you master the art of monkey management.</p>
+            <div class="contact-methods">
+                <a href="mailto:hello@munkee.app" class="contact-button">Email Support</a>
+                <p style="margin-top: 24px; color: var(--text-secondary);">
+                    We typically respond within 24 hours during business days.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="#">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="support.html">Help Center</a></li>
+                        <li><a href="support.html#faq">FAQ</a></li>
+                        <li><a href="support.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="mailto:hello@munkee.app">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 munkee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.faq-toggle');
+            
+            answer.classList.toggle('active');
+            toggle.textContent = answer.classList.contains('active') ? '−' : '+';
+        }
+    </script>
+</body>
+</html>
