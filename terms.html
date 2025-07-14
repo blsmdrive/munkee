@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - munkee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --munkee-green: #57B14F;
+            --warm-brown: #8B4513;
+            --earth-tone: #A0522D;
+            --soft-cream: #F5F5DC;
+            --retro-orange: #FF8C42;
+            --background: #FDF6E3;
+            --surface: #F0E6D2;
+            --text-primary: #2C1810;
+            --text-secondary: #5D4E37;
+            --text-muted: #8B7355;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: #FFFFFF;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--surface);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo .monkey-emoji {
+            font-size: 32px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--munkee-green);
+        }
+        
+        /* Page Header */
+        .page-header {
+            padding: 64px 0;
+            background: linear-gradient(135deg, var(--background) 0%, #FFFFFF 100%);
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            color: var(--text-secondary);
+        }
+        
+        /* Content */
+        .content {
+            padding: 64px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content h2 {
+            font-size: 28px;
+            margin: 48px 0 24px;
+            color: var(--text-primary);
+        }
+        
+        .content h3 {
+            font-size: 22px;
+            margin: 32px 0 16px;
+            color: var(--text-primary);
+        }
+        
+        .content p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .content ul {
+            margin-bottom: 20px;
+            padding-left: 32px;
+            color: var(--text-secondary);
+        }
+        
+        .content li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        
+        .highlight-box {
+            background: var(--background);
+            border-left: 4px solid var(--munkee-green);
+            padding: 24px;
+            margin: 32px 0;
+            border-radius: 8px;
+        }
+        
+        .highlight-box h3 {
+            margin-top: 0;
+            color: var(--munkee-green);
+        }
+
+        .content a {
+            color: var(--munkee-green);
+            text-decoration: none;
+        }
+
+        .content a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 64px 0 32px;
+            margin-top: 100px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--munkee-green);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            padding: 6px 0;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--munkee-green);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .content {
+                padding: 48px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <span class="monkey-emoji">🐵</span>
+                munkee
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="terms.html" class="active">Terms</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Terms of Service</h1>
+            <p>Simple terms for a simple app that respects your productivity journey.</p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="content">
+        <div class="container">
+            <p><strong>Effective Date: January 2025</strong></p>
+            
+            <div class="highlight-box">
+                <h3>🐵 Simple Terms</h3>
+                <p>munkee is a task management app that uses the "monkey on your back" metaphor to make productivity fun and rewarding. Use it to organize your tasks, complete your goals, and watch those monkeys jump off your back. We keep it simple, private, and delightful.</p>
+            </div>
+
+            <h2>1. Acceptance of Terms</h2>
+            <p>By downloading, installing, or using munkee ("the App"), you agree to be bound by these Terms of Service. If you don't agree to these terms, please don't use the App. These terms apply to everyone who uses munkee.</p>
+
+            <h2>2. Description of Service</h2>
+            <p>munkee is a task management application that helps you organize and complete your to-do items using a delightful monkey metaphor. The App provides:</p>
+            <ul>
+                <li>Task creation, editing, and completion with intuitive swipe gestures</li>
+                <li>Custom categories with personalized names and colors</li>
+                <li>Priority levels represented by different monkey expressions</li>
+                <li>Due date tracking with overdue detection</li>
+                <li>Progress tracking and completion celebrations</li>
+                <li>Notes and detailed task descriptions</li>
+                <li>Native iOS design with Dark Mode and accessibility support</li>
+            </ul>
+
+            <h2>3. Privacy and Local Storage</h2>
+            <p>Your privacy is fundamental to munkee:</p>
+            <ul>
+                <li>All task data is stored locally on your device using Core Data</li>
+                <li>We don't have servers and can't access your personal information</li>
+                <li>No account creation or registration is required</li>
+                <li>Your tasks, categories, and progress remain completely private</li>
+                <li>For complete details, see our <a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+
+            <h2>4. Permitted Use</h2>
+            <h3>You may:</h3>
+            <ul>
+                <li>Use munkee for personal task management and productivity</li>
+                <li>Create unlimited tasks, categories, and notes</li>
+                <li>Customize the app with your own categories and priorities</li>
+                <li>Use munkee on multiple iOS devices you own</li>
+                <li>Share screenshots or reviews of your experience</li>
+            </ul>
+
+            <h3>You may not:</h3>
+            <ul>
+                <li>Use munkee for any illegal or unauthorized purpose</li>
+                <li>Attempt to reverse engineer, decompile, or modify the app</li>
+                <li>Use the app in ways that could damage or impair functionality</li>
+                <li>Remove or alter any copyright or proprietary notices</li>
+                <li>Redistribute or resell munkee or its components</li>
+            </ul>
+
+            <h2>5. Intellectual Property</h2>
+            <p>All content, features, and functionality of munkee are owned by us and protected by intellectual property laws:</p>
+            <ul>
+                <li>The munkee name, logo, and monkey metaphor concept</li>
+                <li>App design, interface, and user experience elements</li>
+                <li>Source code, algorithms, and technical implementation</li>
+                <li>Visual assets, icons, and design components</li>
+                <li>The unique "64-bit retro gaming" aesthetic and feel</li>
+            </ul>
+
+            <h2>6. App Store Terms</h2>
+            <p>Your use of munkee is also governed by:</p>
+            <ul>
+                <li>Apple's App Store Terms of Service</li>
+                <li>Apple's End User License Agreement (EULA)</li>
+                <li>Any additional terms imposed by Apple Inc.</li>
+                <li>iOS-specific privacy and security requirements</li>
+            </ul>
+
+            <h2>7. Disclaimers and Warranties</h2>
+            <h3>No Warranties</h3>
+            <p>munkee is provided "as is" and "as available" without any warranties, either express or implied, including:</p>
+            <ul>
+                <li>Merchantability or fitness for a particular purpose</li>
+                <li>Uninterrupted or error-free operation</li>
+                <li>Accuracy or completeness of any content</li>
+                <li>Specific productivity or organizational results</li>
+                <li>Compatibility with future iOS versions</li>
+            </ul>
+
+            <h3>Service Availability</h3>
+            <p>While munkee works entirely offline, we may:</p>
+            <ul>
+                <li>Update the app periodically to improve functionality</li>
+                <li>Temporarily discontinue availability for maintenance</li>
+                <li>Make changes to features or user interface</li>
+                <li>Require iOS updates for continued compatibility</li>
+            </ul>
+
+            <h2>8. Limitation of Liability</h2>
+            <p>To the fullest extent permitted by law, we shall not be liable for any indirect, incidental, special, or consequential damages resulting from:</p>
+            <ul>
+                <li>Your use or inability to use munkee</li>
+                <li>Any errors, bugs, or technical issues in the app</li>
+                <li>Loss of task data due to device issues or user error</li>
+                <li>Reliance on munkee for critical task management</li>
+                <li>Changes to app functionality or features</li>
+            </ul>
+
+            <h2>9. User Responsibilities</h2>
+            <p>As a munkee user, you agree to:</p>
+            <ul>
+                <li>Use the app responsibly for legitimate task management</li>
+                <li>Keep your device and iOS updated for optimal performance</li>
+                <li>Back up your device to protect your task data</li>
+                <li>Understand that munkee stores data locally on your device</li>
+                <li>Contact support if you experience technical issues</li>
+                <li>Respect the intellectual property rights of munkee</li>
+            </ul>
+
+            <h2>10. Updates and Changes</h2>
+            <h3>App Updates</h3>
+            <p>We may update munkee to:</p>
+            <ul>
+                <li>Add new features or improve existing functionality</li>
+                <li>Fix bugs and enhance performance</li>
+                <li>Improve accessibility and user experience</li>
+                <li>Ensure compatibility with new iOS versions</li>
+                <li>Add new monkey expressions or visual elements</li>
+            </ul>
+
+            <h3>Terms Updates</h3>
+            <p>We reserve the right to modify these Terms:</p>
+            <ul>
+                <li>We'll update the "Effective Date" for any changes</li>
+                <li>Significant changes will be communicated through the app</li>
+                <li>Continued use after changes constitutes acceptance</li>
+                <li>We'll never compromise our core privacy principles</li>
+            </ul>
+
+            <h2>11. Termination</h2>
+            <p>You may stop using munkee at any time by deleting the app from your device. We reserve the right to:</p>
+            <ul>
+                <li>Discontinue munkee with reasonable notice</li>
+                <li>Remove the app from the App Store if necessary</li>
+                <li>Modify features or functionality in updates</li>
+                <li>End support for older iOS versions over time</li>
+            </ul>
+
+            <h2>12. Data and Device Considerations</h2>
+            <p>Important information about your munkee data:</p>
+            <ul>
+                <li><strong>Local Storage:</strong> All data is stored only on your device</li>
+                <li><strong>No Cloud Backup:</strong> We don't provide cloud storage or sync</li>
+                <li><strong>Device Backups:</strong> Your data is included in iOS device backups</li>
+                <li><strong>Data Transfer:</strong> Moving to a new device requires restoring from backup</li>
+                <li><strong>Deletion:</strong> Uninstalling the app permanently deletes all data</li>
+            </ul>
+
+            <h2>13. Children's Use</h2>
+            <p>munkee is safe for users of all ages:</p>
+            <ul>
+                <li>The app is designed to be family-friendly</li>
+                <li>No personal information collection occurs</li>
+                <li>Parents can safely allow children to use munkee</li>
+                <li>The monkey metaphor makes task management fun for kids</li>
+                <li>All content is appropriate for young users</li>
+            </ul>
+
+            <h2>14. Accessibility</h2>
+            <p>munkee is designed to be accessible to all users:</p>
+            <ul>
+                <li>VoiceOver support for screen reader users</li>
+                <li>Dynamic Type support for custom text sizes</li>
+                <li>High contrast mode compatibility</li>
+                <li>Reduced motion options where appropriate</li>
+                <li>Clear visual hierarchy and intuitive navigation</li>
+            </ul>
+
+            <h2>15. International Use</h2>
+            <p>munkee can be used worldwide:</p>
+            <ul>
+                <li>The app works in all regions where iOS is available</li>
+                <li>Local data storage complies with international privacy laws</li>
+                <li>No geo-restrictions or regional limitations</li>
+                <li>Support is provided in English</li>
+                <li>Currency and date formats follow iOS system settings</li>
+            </ul>
+
+            <h2>16. Governing Law</h2>
+            <p>These Terms are governed by the laws of your jurisdiction of residence. For disputes that cannot be resolved through normal support channels, applicable local laws and consumer protection regulations will apply.</p>
+
+            <h2>17. Severability</h2>
+            <p>If any provision of these Terms is found to be unenforceable, that provision will be limited or eliminated to the minimum extent necessary, and the remaining Terms will continue in full force and effect.</p>
+
+            <h2>18. Entire Agreement</h2>
+            <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and munkee regarding use of the App, superseding any prior agreements or understandings.</p>
+
+            <h2>19. Contact Information</h2>
+            <p>If you have questions about these Terms of Service:</p>
+            <ul>
+                <li>Email: <a href="mailto:hello@munkee.app">hello@munkee.app</a></li>
+                <li>Support Page: <a href="support.html">munkee Support Center</a></li>
+            </ul>
+
+            <h2>20. Fair Use and Spirit</h2>
+            <p>munkee is built with love for productivity and respect for users:</p>
+            <ul>
+                <li>We believe in simple, honest software that just works</li>
+                <li>Our goal is to make task management delightful and rewarding</li>
+                <li>We're committed to maintaining munkee's privacy-first design</li>
+                <li>The monkey metaphor should bring joy to your productivity journey</li>
+            </ul>
+
+            <div class="highlight-box" style="margin-top: 48px;">
+                <h3>Thank You</h3>
+                <p>Thank you for choosing munkee to help manage your tasks and goals. We're honored to be part of your productivity journey and hope that watching those monkeys jump off your back brings you satisfaction and motivation. Here's to getting things done with a smile! 🐵</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="#">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="support.html">Help Center</a></li>
+                        <li><a href="support.html#faq">FAQ</a></li>
+                        <li><a href="support.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="mailto:hello@munkee.app">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 munkee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
