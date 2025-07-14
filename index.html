@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>munkee - Get Those Monkeys Off Your Back</title>
+    <meta name="description" content="Transform your productivity with munkee. Turn overwhelming tasks into jumping monkeys with our delightfully intuitive iOS task manager.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --munkee-green: #57B14F;
+            --warm-brown: #8B4513;
+            --earth-tone: #A0522D;
+            --soft-cream: #F5F5DC;
+            --retro-orange: #FF8C42;
+            --background: #FDF6E3;
+            --surface: #F0E6D2;
+            --text-primary: #2C1810;
+            --text-secondary: #5D4E37;
+            --text-muted: #8B7355;
+            --gradient-primary: linear-gradient(135deg, var(--munkee-green), var(--earth-tone));
+            --gradient-accent: linear-gradient(135deg, var(--retro-orange), var(--munkee-green));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: #FFFFFF;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--surface);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo .monkey-emoji {
+            font-size: 32px;
+            animation: swing 3s ease-in-out infinite;
+        }
+        
+        @keyframes swing {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(5deg); }
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--munkee-green);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--background) 0%, #FFFFFF 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(87, 177, 79, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 140, 66, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+        
+        .hero .highlight {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 22px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.5;
+        }
+        
+        .app-store-badge {
+            display: inline-flex;
+            width: 200px;
+            height: 60px;
+            background: var(--munkee-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            box-shadow: 0 4px 12px rgba(87, 177, 79, 0.25);
+        }
+        
+        .app-store-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(87, 177, 79, 0.35);
+            background: var(--earth-tone);
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 100px 0;
+        }
+        
+        .benefits h2 {
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .benefits .subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 64px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 40px 32px;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            border: 2px solid transparent;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(87, 177, 79, 0.15);
+            border-color: var(--munkee-green);
+        }
+        
+        .benefit-icon {
+            font-size: 48px;
+            flex-shrink: 0;
+            width: 80px;
+            text-align: center;
+        }
+        
+        .benefit-content h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        
+        .benefit-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: var(--background);
+        }
+        
+        .features h2 {
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .features .subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 64px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px 32px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-color: var(--retro-orange);
+        }
+        
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            background: var(--gradient-accent);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+        
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+        }
+        
+        .how-it-works h2 {
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 64px;
+            color: var(--text-primary);
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--munkee-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 auto 24px;
+        }
+        
+        .step h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        
+        .step p {
+            color: var(--text-secondary);
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: var(--gradient-primary);
+            text-align: center;
+            color: white;
+        }
+        
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 24px;
+        }
+        
+        .cta p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta .app-store-badge {
+            background: white;
+            color: var(--text-primary);
+        }
+        
+        .cta .app-store-badge:hover {
+            background: var(--soft-cream);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 64px 0 32px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--munkee-green);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            padding: 6px 0;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--munkee-green);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .features h2, .how-it-works h2, .cta h2, .benefits h2 {
+                font-size: 32px;
+            }
+            
+            .feature-grid, .benefit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefit-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+
+            .benefit-icon {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">
+                <span class="monkey-emoji">🐵</span>
+                munkee
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="#privacy">Privacy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Get those <span class="highlight">monkeys off your back</span></h1>
+                <p>Transform overwhelming tasks into jumping monkeys with munkee - the delightfully intuitive iOS task manager that makes productivity feel like play.</p>
+                <a href="#" class="app-store-badge">Coming Soon to App Store</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2>Turn Tasks Into Victories</h2>
+            <p class="subtitle">Every completed task makes a monkey jump off your back - literally!</p>
+            <div class="benefit-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">🎯</span>
+                    <div class="benefit-content">
+                        <h3>Simple & Intuitive</h3>
+                        <p>Native iOS gestures you already know - swipe to complete, swipe to delete. No learning curve, just pure productivity.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🏆</span>
+                    <div class="benefit-content">
+                        <h3>Satisfying Progress</h3>
+                        <p>Watch monkeys literally jump off your back as you complete tasks. Each victory feels rewarding and motivates the next.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🔒</span>
+                    <div class="benefit-content">
+                        <h3>Privacy First</h3>
+                        <p>Your tasks stay on your device. No accounts, no cloud sync, no tracking. Your productivity journey is yours alone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Everything You Need</h2>
+            <p class="subtitle">Powerful task management wrapped in delightful 64-bit retro charm.</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Smart Task Management</h3>
+                    <p>Add, edit, and organize tasks with custom categories, priorities, and due dates. Everything you need, nothing you don't.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Custom Categories</h3>
+                    <p>Create personalized categories with custom names and colors. Organize work, personal, and creative projects your way.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Optimized for hundreds of tasks with 60-80% performance improvements. Smooth scrolling, instant responses.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🐵</div>
+                    <h3>Priority Monkeys</h3>
+                    <p>Different monkey faces show task priorities at a glance. High, medium, low - each with its own personality.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Native iOS Design</h3>
+                    <p>Follows Apple's Human Interface Guidelines with Dark Mode support, VoiceOver accessibility, and haptic feedback.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Retro Gaming Vibes</h3>
+                    <p>Beautiful 64-bit aesthetic meets modern functionality. Nostalgia-fueled design that makes tasks feel fun.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>Get Started in 3 Simple Steps</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Add Your Tasks</h3>
+                    <p>Tap to add tasks with priorities, categories, and due dates. Watch monkeys appear on your back.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Swipe to Complete</h3>
+                    <p>Use familiar iOS gestures - swipe left to complete tasks, right to delete. Natural and intuitive.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Watch Monkeys Jump</h3>
+                    <p>Celebrate each victory as completed monkeys jump off your back. Progress feels rewarding and visible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Clear Your Back?</h2>
+            <p>Join the productivity revolution that makes getting things done feel like playing your favorite retro game.</p>
+            <a href="#" class="app-store-badge">Download munkee Soon</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#support">Help Center</a></li>
+                        <li><a href="#support">FAQ</a></li>
+                        <li><a href="#support">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="mailto:hello@munkee.app">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 munkee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
