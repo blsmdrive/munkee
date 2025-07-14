@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - munkee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --munkee-green: #57B14F;
+            --warm-brown: #8B4513;
+            --earth-tone: #A0522D;
+            --soft-cream: #F5F5DC;
+            --retro-orange: #FF8C42;
+            --background: #FDF6E3;
+            --surface: #F0E6D2;
+            --text-primary: #2C1810;
+            --text-secondary: #5D4E37;
+            --text-muted: #8B7355;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: #FFFFFF;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--surface);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo .monkey-emoji {
+            font-size: 32px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--munkee-green);
+        }
+        
+        /* Page Header */
+        .page-header {
+            padding: 64px 0;
+            background: linear-gradient(135deg, var(--background) 0%, #FFFFFF 100%);
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            color: var(--text-secondary);
+        }
+        
+        /* Content */
+        .content {
+            padding: 64px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content h2 {
+            font-size: 28px;
+            margin: 48px 0 24px;
+            color: var(--text-primary);
+        }
+        
+        .content h3 {
+            font-size: 22px;
+            margin: 32px 0 16px;
+            color: var(--text-primary);
+        }
+        
+        .content p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .content ul {
+            margin-bottom: 20px;
+            padding-left: 32px;
+            color: var(--text-secondary);
+        }
+        
+        .content li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        
+        .highlight-box {
+            background: var(--background);
+            border-left: 4px solid var(--munkee-green);
+            padding: 24px;
+            margin: 32px 0;
+            border-radius: 8px;
+        }
+        
+        .highlight-box h3 {
+            margin-top: 0;
+            color: var(--munkee-green);
+        }
+
+        .content a {
+            color: var(--munkee-green);
+            text-decoration: none;
+        }
+
+        .content a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 64px 0 32px;
+            margin-top: 100px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--munkee-green);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            padding: 6px 0;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--munkee-green);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .content {
+                padding: 48px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <span class="monkey-emoji">🐵</span>
+                munkee
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="privacy.html" class="active">Privacy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Privacy Policy</h1>
+            <p>Your tasks are private. Your monkeys are private. Your productivity is yours alone.</p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="content">
+        <div class="container">
+            <p><strong>Last Updated: January 2025</strong></p>
+            
+            <div class="highlight-box">
+                <h3>🔒 Privacy by Design</h3>
+                <p>munkee is built with privacy at its core. All your tasks, categories, priorities, and monkey progress stay completely private on your device. We don't have servers, we don't track you, and we can't see your productivity data. Your journey to getting monkeys off your back is yours alone.</p>
+            </div>
+
+            <h2>1. Information We Don't Collect</h2>
+            <p>munkee is designed to respect your privacy by not collecting data in the first place:</p>
+            <ul>
+                <li><strong>No Account Required:</strong> Use munkee without creating an account or providing any personal information</li>
+                <li><strong>No Task Data Collection:</strong> Your tasks, categories, and notes never leave your device</li>
+                <li><strong>No Analytics:</strong> We don't use any third-party analytics or tracking services</li>
+                <li><strong>No Advertising:</strong> munkee is ad-free and will always remain so</li>
+                <li><strong>No Cloud Sync:</strong> By design, we don't sync your data to our servers (we don't have any)</li>
+            </ul>
+
+            <h2>2. Local Data Storage</h2>
+            <p>All your munkee data is stored exclusively on your device using Core Data:</p>
+            <ul>
+                <li>Task names, descriptions, and due dates</li>
+                <li>Custom categories with names and colors</li>
+                <li>Priority levels and monkey assignments</li>
+                <li>Completion timestamps and progress tracking</li>
+                <li>App preferences and settings</li>
+                <li>Notes and additional task details</li>
+            </ul>
+            <p>This data remains on your device and is protected by iOS's built-in security features, including encryption and your device passcode or biometric authentication.</p>
+
+            <h2>3. Data Sharing</h2>
+            <p>Simple answer: <strong>We don't share your data because we don't have it.</strong></p>
+            <ul>
+                <li>No task data is transmitted to any servers</li>
+                <li>No data is shared with third parties</li>
+                <li>No data is sold or used for marketing purposes</li>
+                <li>No productivity metrics leave your device</li>
+                <li>No monkey progress is tracked externally</li>
+            </ul>
+
+            <h2>4. Your Control Over Data</h2>
+            <p>You have complete control over your munkee data:</p>
+            <ul>
+                <li><strong>Delete Tasks:</strong> Remove individual tasks or entire categories instantly</li>
+                <li><strong>Reset Progress:</strong> Clear all completion history and start fresh</li>
+                <li><strong>Full Reset:</strong> Delete all app data with one tap in settings</li>
+                <li><strong>Uninstall:</strong> Removing the app permanently deletes all local data</li>
+                <li><strong>Export Control:</strong> While munkee doesn't have export features, your data never leaves without your explicit action</li>
+            </ul>
+
+            <h2>5. Security Measures</h2>
+            <p>Your munkee data is protected by:</p>
+            <ul>
+                <li>iOS's built-in device encryption</li>
+                <li>Your device passcode or biometric locks</li>
+                <li>Core Data's secure local storage</li>
+                <li>No network transmission of personal data</li>
+                <li>App sandboxing that isolates munkee data from other apps</li>
+            </ul>
+
+            <h2>6. iOS Integration</h2>
+            <p>munkee integrates responsibly with iOS features:</p>
+            <ul>
+                <li><strong>Notifications:</strong> Local notifications are scheduled on your device only</li>
+                <li><strong>Shortcuts:</strong> Any Siri Shortcuts work locally and don't transmit data</li>
+                <li><strong>Widget Support:</strong> Home screen widgets display data from local storage only</li>
+                <li><strong>Haptic Feedback:</strong> Tactile responses are generated locally</li>
+                <li><strong>VoiceOver:</strong> Accessibility features work with local data only</li>
+            </ul>
+
+            <h2>7. No Third-Party Services</h2>
+            <p>munkee doesn't integrate with any external services:</p>
+            <ul>
+                <li>No cloud storage providers</li>
+                <li>No analytics or crash reporting services</li>
+                <li>No advertising networks or trackers</li>
+                <li>No social media integrations</li>
+                <li>No external productivity services</li>
+            </ul>
+
+            <h2>8. Children's Privacy</h2>
+            <p>munkee is safe for users of all ages:</p>
+            <ul>
+                <li>We don't collect any information from users, regardless of age</li>
+                <li>No personal data is required to use the app</li>
+                <li>The monkey metaphor and retro design are family-friendly</li>
+                <li>Local-only storage means no privacy risks for younger users</li>
+            </ul>
+
+            <h2>9. International Users</h2>
+            <p>Privacy protections apply globally:</p>
+            <ul>
+                <li>Local data storage complies with privacy laws worldwide</li>
+                <li>No cross-border data transfers occur</li>
+                <li>GDPR, CCPA, and other privacy regulations are satisfied by design</li>
+                <li>Regional privacy rights are respected through local-only architecture</li>
+            </ul>
+
+            <h2>10. App Store Information</h2>
+            <p>Apple may collect standard App Store analytics:</p>
+            <ul>
+                <li>Download and update statistics</li>
+                <li>Crash reports (if you opt in through iOS settings)</li>
+                <li>App Store reviews and ratings</li>
+                <li>This data is handled by Apple according to their privacy policy</li>
+                <li>We don't have access to individual user data from these sources</li>
+            </ul>
+
+            <h2>11. Future Updates</h2>
+            <p>Our commitment to privacy will never change:</p>
+            <ul>
+                <li>Future munkee updates will maintain local-only data storage</li>
+                <li>Any new features will follow the same privacy-first principles</li>
+                <li>We will never introduce cloud sync or data collection</li>
+                <li>If we ever considered changes, we would notify users clearly</li>
+            </ul>
+
+            <h2>12. Changes to This Policy</h2>
+            <p>If we update this privacy policy, we will:</p>
+            <ul>
+                <li>Update the "Last Updated" date</li>
+                <li>Notify users through the app if changes are significant</li>
+                <li>Always maintain our commitment to local-only data storage</li>
+                <li>Never compromise on our core privacy principles</li>
+            </ul>
+
+            <h2>13. Contact Us</h2>
+            <p>If you have questions about privacy or how munkee protects your data:</p>
+            <ul>
+                <li>Email: <a href="mailto:hello@munkee.app">hello@munkee.app</a></li>
+                <li>Visit our <a href="support.html">Support page</a></li>
+            </ul>
+
+            <h2>14. Technical Implementation</h2>
+            <p>For technically curious users, here's how we ensure privacy:</p>
+            <ul>
+                <li><strong>Core Data:</strong> Apple's local database framework stores all app data</li>
+                <li><strong>No Network Stack:</strong> munkee doesn't include networking code for data transmission</li>
+                <li><strong>Sandboxed Storage:</strong> iOS isolates munkee data from other applications</li>
+                <li><strong>No External Dependencies:</strong> No third-party SDKs that could collect data</li>
+            </ul>
+
+            <div class="highlight-box" style="margin-top: 48px;">
+                <h3>Our Promise</h3>
+                <p>munkee was created to help you be more productive without sacrificing your privacy. Your tasks and goals are deeply personal, and we believe they should stay that way. The monkeys on your back are yours to manage, and your journey to productivity belongs to you alone. We're just here to make it more fun and rewarding.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="#">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="support.html">Help Center</a></li>
+                        <li><a href="support.html#faq">FAQ</a></li>
+                        <li><a href="support.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="mailto:hello@munkee.app">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 munkee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
